@@ -1,0 +1,13 @@
+.jumbotron {
+  padding: 1.5rem;
+  color: #cdbfe3;
+  background-color: #6f5499;
+}
+
+.jumbotron h1 {
+  color: #fff;
+}
+
+.top-buffer {
+  margin-top: 2rem;
+}
