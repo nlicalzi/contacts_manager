@@ -21,7 +21,7 @@
         <button type="button" class="btn btn-outline-primary">Add Contact</button>
       </div>
       <div class="col-6 d-flex justify-content-center">
-        <input class="form-control" type="text" placeholder="Search by contact name..."/>
+        <input class="form-control" type='text' placeholder="Search by contact name..." />
       </div>
     </div>
     <div class="row justify-content-center top-buffer">
@@ -31,5 +31,11 @@
       <button type="button" class="btn btn-outline-primary">Add Contact</button>
     </div>
   </div>
+  <div class="modal hidden">
+    <!-- This is where the Add Contact form is, fade in/scroll up on button click -->
+  </div>
+  <script id="contactsTemplate" type="text/x-handlebars"></script>
+  <script id="tagTemplate" type="text/x-handlebars"></script>
+  <script id="contactPartial" type="text/x-handlebars"></script>
 </body>
 </html>
