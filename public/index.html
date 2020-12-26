@@ -34,6 +34,35 @@
         <button type="button" class="add-contact btn btn-outline-primary">Add Contact</button>
       </div>
     </div>
+    <div id="add-contacts-card" class="card">
+      <div class="row justify-content-center top-buffer">
+        <form>
+          <h3 class="form-group justify-content-center row">New Contact Form</h3>
+          <div class="form-group row">
+            <label for="inputName" class="col-sm-4 col-form-label">Full Name:</label>
+            <div class="col-8">
+              <input type="text" class="form-control" id="inputName" placeholder="...">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail" class="col-sm-4 col-form-label">Email:</label>
+            <div class="col-8">
+              <input type="text" class="form-control" id="inputEmail" placeholder="...">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPhone" class="col-sm-4 col-form-label">Telephone:</label>
+            <div class="col-8">
+              <input type="text" class="form-control" id="inputPhone" placeholder="...">
+            </div>
+          </div>
+          <div class="form-group row justify-content-center">
+            <button id="submit" type="submit" class="contact-form-btn btn btn-outline-primary">Submit</button>
+            <button id="cancel" type="button" class="contact-form-btn btn btn-outline-primary">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
   <div class="modal hidden">
     <!-- This is where the Add Contact form is, fade in/scroll up on button click -->
