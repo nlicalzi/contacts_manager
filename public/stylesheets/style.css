@@ -11,3 +11,10 @@
 .top-buffer {
   margin-top: 2rem;
 }
+
+.card {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: #F5F5F5;
+}
