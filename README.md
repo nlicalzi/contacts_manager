@@ -18,15 +18,36 @@ Contact Manager app for JS230 take-home assessment practice, reproducing functio
 
 <img src="https://www.tutorialspoint.com/sencha_touch/images/mvc.jpg" alt="MVC interactions" style="zoom:67%;" />
 
-### Entities:
+### Entities/Objects:
 
-* Contact
-  * ID (autoincrementing int)
-  * Full Name (str, req)
-  * Email (str, req), validate: validate with regex, includes `@` and `.` in right places
-  * Phone Number (number or string, req)
-  * Tags (comma separated strs or `null`, opt)
-* Tag (str)
+* `Contact`
+  * State:
+    * ID (autoincrementing int)
+    * Full Name (str, req)
+    * Email (str, req), validate: validate with regex, includes `@` and `.` in right places
+    * Phone Number (number or string, req)
+    * Tags (comma separated strs or `null`, opt)
+  * Behavior:
+* `ContactManager`
+  * State:
+  * Behavior:
+    * Rendering individual contacts
+    * Searching/filtering contacts
+    * CRUD for contacts
+    * Send/receive contact info to/from API
+* `Tag`
+  * State:
+    * ID (autoincrementing int)
+    * Tag Name (str)
+  * Behavior:
+    * .
+* `API`
+  * State:
+  * Behavior:
+    * CRUD operations w/ API endpoint
+* `App`
+  * State:
+  * Behavior:
 
 ### Event Handlers:
 
