@@ -1,3 +1,24 @@
+body {
+  display: block;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+ul, li, div, .media {
+  display: block;
+}
+
+dl {
+  margin-bottom: 20px;
+}
+
 .jumbotron {
   padding: 1.5rem;
   color: #cdbfe3;

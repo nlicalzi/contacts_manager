@@ -54,13 +54,15 @@ Contact Manager app for JS230 take-home assessment practice, reproducing functio
 * **On load**
   * EITHER: display contacts or no contacts message & Add Contact button (STATIC VIEW)
 * **On Add Contact button click:**
-  * Reveal/scroll-up Create Contact form modal (incl submit & cancel buttons)
+  * Slide-up list of contacts (hide w/ jQuery)
+  * Slide-down New Contact Form (display w/ jQuery)
 * **On Submit button click (Add Contact form)**
   * Send data to server
   * Scroll form up to hide
   * Display contacts
 * **On Cancel button click (Add Contact form)**
-  * 
+  * Slide-up (hide w/ jQuery) New Contact Form
+  * Slide-down (display w/ jQuery) list of contacts
 * **On delete button click:**
   * Alert with confirmation question
     * If yes, ping API w/ delete request
@@ -69,11 +71,3 @@ Contact Manager app for JS230 take-home assessment practice, reproducing functio
   * Search contacts by name and return best match
     * If there is a match, display the contact info
     * If there is no match for the substring, log an error message
-* **On Add Contact button click:**
-  * Display Create Contact form:
-    * Create Contact header
-    * Full Name text input
-    * Email Address text input
-    * Telephone Number text input
-    * Submit Button
-    * Cancel Button
