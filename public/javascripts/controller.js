@@ -1,4 +1,4 @@
-class ContactManager {
+class Controller {
   constructor() {
     // set state here
   }
