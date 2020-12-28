@@ -1,6 +1,18 @@
 class Contact {
-  constructor() {
-    // state
+  constructor(name, email, telephone, tags) {
+    this.name = name;
+    this.email = email;
+    this.telephone = telephone;
+    this.tags = tags;
+    this.id = Contact.#incrementId();
   }
-  // behaviors
+
+  static #incrementId() { // should this also ping the API?
+    if (!this.latestId) {
+      this.latestId = 1; 
+    } else {
+      this.latestId++;
+    }
+    return this.latestId;
+  }
 }
