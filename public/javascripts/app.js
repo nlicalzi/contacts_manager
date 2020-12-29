@@ -15,4 +15,5 @@ class App {
   // }
 }
 
-$(app = new App()); // start the app
+let app;
+$(app = new App());

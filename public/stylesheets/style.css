@@ -19,6 +19,10 @@ dl {
   margin-bottom: 20px;
 }
 
+.container {
+  width: 100%;
+}
+
 .hidden {
   display: none;
 }
