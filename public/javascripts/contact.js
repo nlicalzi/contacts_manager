@@ -3,9 +3,11 @@ class Contact {
     this.name = name;
     this.email = email;
     this.telephone = telephone;
-    this.tags = tags;
+    this.tags = tags || [];
     this.id = Contact.#incrementId();
   }
+
+  // add CRUD methods here that call API class methods?
 
   static #incrementId() { // should this also ping the API?
     if (!this.latestId) {

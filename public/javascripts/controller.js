@@ -1,6 +1,7 @@
 class Controller {
-  constructor() {
-    // set state here
+  constructor(contact, view) {
+    this.contact = contact;
+    this.view = view;
   }
 
   // set behaviors here
@@ -19,5 +20,16 @@ class Controller {
     let html = templateScript(contact);
     $('.contacts-container').append(html); // this is where we will render the template
     // do something with the above...
+  }
+
+  bindHandlers() {
+    // button events
+    this.handleAddContactButtonClick = this.handleAddContactButtonClick.bind(this);
+    this.handleSubmitNewContactButtonClick  = this.handleSubmitNewContactButtonClick.bind(this);
+    this.handleEditContactButtonClick = this.handleEditContactButtonClick.bind(this);
+    this.handleDeleteButtonClick = this.handleDeleteButtonClick.bind(this);
+    this.handleCancelButtonClick = this.handleCancelButtonClick.bind(this);
+    // search bar events
+    this.handleSearchBarInput = this.handleSearchBarInput.bind(this);
   }
 }
