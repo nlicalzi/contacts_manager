@@ -27,14 +27,8 @@
         </div>
       </div>
     </div>
-    <div id="contacts-card" class="card">
-      <div class="row justify-content-center top-buffer">
-        <h3>There are no contacts currently saved.</h3>
-      </div>
-      <div class="row justify-content-center top-buffer">
-        <button type="button" class="add-contact btn btn-outline-primary">Add Contact</button>
-      </div>
-    </div>
+    <div id="no-contacts-card" class="card"></div>
+    <div id="contacts-container" class="media-list row top-buffer"></div>
     <div id="contact-form-card" class="card">
       <div class="row justify-content-center top-buffer">
         <form>
@@ -55,7 +49,7 @@
           <div class="form-group row">
             <label for="input-phone-number" class="col-sm-4 col-form-label">US Tel. #:</label>
             <div class="col-8">
-              <input type="tel" class="form-control" id="input-phone-number" placeholder="ex. 212-123-1234"
+              <input type="tel" class="form-control" id="input-phone-number" placeholder="ex. 01-212-123-1234"
               pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
             </div>
           </div>
@@ -66,11 +60,17 @@
         </form>
       </div>
     </div>
-    <ul class="contacts-container media-list row clearfix">
-    </ul>
   </div>
+  <template id="emptyContactsTemplate">
+    <div class="row justify-content-center top-buffer">
+      <h3>There are no contacts currently saved.</h3>
+    </div>
+    <div class="row justify-content-center top-buffer">
+      <button type="button" class="add-contact btn btn-outline-primary">Add Contact</button>
+    </div>
+  </template>
   <script id="contactsTemplate" type="text/x-handlebars-template">
-    <li class="media col-md-3 col-sm-4">
+    <li class="media col-md-3 col-sm-4" data-id="{{id}}">
       <div class="media-heading">
         <h4>{{full_name}}</h4>
       </div>
@@ -91,11 +91,10 @@
   </script>
   <script id="contactPartial" type="text/x-handlebars"></script>
   <script id="tagTemplate" type="text/x-handlebars"></script>
-  <script src="javascripts/contact.js"></script>
-  <script src="javascripts/tag.js"></script>
-  <script src="javascripts/controller.js"></script>
+  <script src="javascripts/model.js"></script>
   <script src="javascripts/view.js"></script>
-  <script src="javascripts/API.js"></script>
+  <script src="javascripts/controller.js"></script>
+  <script src="javascripts/tag.js"></script>
   <script src="javascripts/app.js"></script>
 </body>
 </html>

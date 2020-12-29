@@ -1,7 +1,7 @@
 class Controller {
-  constructor(contact, view) {
-    this.contact = contact;
-    this.view = view;
+  constructor() {
+    this.populateContactsList();
+
   }
 
   // set behaviors here
@@ -12,14 +12,14 @@ class Controller {
     // do something with the value of the above
   }
 
-  renderContact() {
-    // modify these...
-    let template = $('#contactsTemplate').html(); // this is our handlebars template
-    let contact = { name: 'Nicholas LiCalzi', phone: '646-351-9917', email: 'nicholas.licalzi@gmail.com' };
-    let templateScript = Handlebars.compile(template);
-    let html = templateScript(contact);
-    $('.contacts-container').append(html); // this is where we will render the template
-    // do something with the above...
+  populateContactsList() {
+    ContactModel.getAllContacts(function(contacts) {
+      if (contacts.length === 0) {
+        View.renderNoContactsCard();
+      } else {
+        contacts.forEach(contact => View.renderContact(contact))
+      }
+    });    
   }
 
   bindHandlers() {

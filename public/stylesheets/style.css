@@ -19,6 +19,10 @@ dl {
   margin-bottom: 20px;
 }
 
+.hidden {
+  display: none;
+}
+
 .jumbotron {
   padding: 1.5rem;
   color: #cdbfe3;

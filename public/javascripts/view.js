@@ -1,9 +1,24 @@
 class View {
-  // state
-  // behavior
-  
-  static renderContactsList(contacts) {} // either empty or populated
-  static renderSearchedContacts(contacts) {}
+  static renderContact(contact) {
+    $('#no-contacts-card').hide();
+
+    let template = $('#contactsTemplate').html();
+    let compiled = Handlebars.compile(template);
+    $('#contacts-container').append(compiled(contact));
+  }
+
+  static clearContact(id) {
+    $(`li[data-id=${id}]`).remove()
+  }
+
+  static renderNoContactsCard() {
+    $('#contacts-container').hide();
+
+    let emptyContactsTemplate = $('#emptyContactsTemplate').html()
+    $('#no-contacts-card').append(emptyContactsTemplate);
+  }
+
+  // static renderSearchedContacts(contacts) {}
   static renderNewContactForm() {}
   static renderEditContactForm() {}
   static showNewContactForm() {
