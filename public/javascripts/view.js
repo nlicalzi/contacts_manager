@@ -1,5 +1,9 @@
 class View {
-  static renderContact(contact) {
+  constructor() {
+    // this.registerEvents();
+  }
+
+  renderContact(contact) {
     $('#no-contacts-card').hide();
 
     let template = $('#contactsTemplate').html();
@@ -7,25 +11,34 @@ class View {
     $('#contacts-container').append(compiled(contact));
   }
 
-  static clearContact(id) {
+  clearContact(id) {
     $(`li[data-id=${id}]`).remove()
   }
 
-  static renderNoContactsCard() {
+  renderNoContactsCard() {
     $('#contacts-container').hide();
 
     let emptyContactsTemplate = $('#emptyContactsTemplate').html()
     $('#no-contacts-card').append(emptyContactsTemplate);
   }
 
-  // static renderSearchedContacts(contacts) {}
-  static renderNewContactForm() {}
-  static renderEditContactForm() {}
-  static showNewContactForm() {
-    // jQuery slide-down
+  showNewContactForm() {
+    $('#contact-form-card').slideDown();
   }
-  static hideNewContactForm() {
-    // jQuery slide-up
+
+  hideNewContactForm() {
+    $('#contact-form-card').slideUp();
   }
-  static renderTags() {}
+
+  // renderEditContactForm() {
+
+  // }
+
+  // renderTags() {
+
+  // }
+
+  // renderSearchedContacts(contacts) {
+
+  // }
 }

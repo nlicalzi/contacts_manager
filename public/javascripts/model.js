@@ -1,36 +1,36 @@
-class ContactModel {
-  constructor(name, email, telephone, tags) {
-    this.name = name;
-    this.email = email;
-    this.telephone = telephone;
-    this.tags = tags || [];
-    this.id = ContactModel.#incrementId();
+class Model {
+  // contact: { id, name, email, phone_number, tags }
+  constructor() {
+    this.contacts = [];
   }
 
-  static getContact(id) {
+  getContact(id) {
     return $.get({
       url: `/api/contacts/${id}`,
       dataType: 'json',
     });
   }
 
-  static getAllContacts(callback) {
+  getAllContacts() {
     return $.get({
       url: '/api/contacts',
       dataType: 'json',
-    }, callback);
+    });
   }
 
-  static createContact(contact) {}
-  static updateContact(id) {}
-  static deleteContact(id) {}
+  createContact(contact) {
 
-  static #incrementId() { // should this also ping the API?
-    if (!this.latestId) {
-      this.latestId = 1; 
-    } else {
-      this.latestId++;
-    }
-    return this.latestId;
+  }
+
+  updateContact(id) {
+
+  }
+
+  deleteContact(id) {
+
+  }
+
+  #incrementId() {
+    // map this.contacts to id, return largest el in array + 1
   }
 }
