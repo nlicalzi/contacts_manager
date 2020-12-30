@@ -90,9 +90,9 @@ class View {
     $('.container').on('submit', '.new-contact-form', (e) => {
       e.preventDefault();
       let form = e.target.closest('form');
-      let inputs = this.extractFormData(form);
-      console.log(inputs);
-      handler(inputs);
+      let contact = this.extractFormData(form);
+
+      handler(contact);
       this.hideNewContactForm();
       // contactslist isn't being displayed properly here
     });
@@ -110,8 +110,12 @@ class View {
 
   bindSubmitEditedContact(handler) {
     $('.container').on('click', '#submitEdit', (e) => {
-      let id = e.target.closest('li').dataset.id;
-      handler(id);
+      e.preventDefault();
+      let form = e.target.closest('form');
+      let contact = this.extractFormData(form);
+
+      contact['id'] = form.dataset.latestid;
+      handler(contact);
 
       this.hideEditContactForm();
       this.showContactsList();
@@ -136,6 +140,5 @@ class View {
   }
 
   // TO IMPLEMENT
-  // renderEditContactForm() {}
   // renderTags() {}
 }

@@ -28,6 +28,7 @@ class Controller {
   refreshContactsList = (contacts = this.model.contacts) => {
     this.view.clearAllContacts();
     this.renderContactsList(contacts);
+    this.view.showContactsList();
   }
 
   handleSubmitAddedContact = (partialContact) => {
@@ -38,6 +39,22 @@ class Controller {
   handleDeleteContact = (id) => {
     this.model.deleteContact(id);
     this.view.clearContact(id);
+  }
+
+  handleEditContact = (id) => {
+    $('.edit-contact-form')[0].setAttribute('data-latestid', id);
+
+    let contact = this.model.contacts.filter(contact => contact.id === Number(id))[0];
+    let { full_name, email, phone_number } = contact;
+
+    $('#editContactFullName').val(full_name);
+    $('#editContactEmail').val(email);
+    $('#editContactPhoneNumber').val(phone_number);
+  }
+
+  handleSubmitEditedContact = (contact) => {
+    this.model.updateContact(contact);
+    this.refreshContactsList();
   }
 
   handleSearchBarInput = (input) => { 
@@ -69,19 +86,4 @@ class Controller {
       timeout = setTimeout(() => func.apply(null, args), delay);
     };
   };
-
-  handleEditContact = (id) => {
-    let form = $('.edit-contact-form');
-
-    let contact = this.model.contacts.filter(contact => contact.id === Number(id))[0];
-    let { full_name, email, phone_number } = contact;
-
-    $('#editContactFullName').val(full_name);
-    $('#editContactEmail').val(email);
-    $('#editContactPhoneNumber').val(phone_number);
-  }
-
-  handleSubmitEditedContact = (id) => {
-    
-  }
 }

@@ -30,10 +30,22 @@ class Model {
     this.contacts.push(contact);
   }
 
-  updateContact(id) { // Called when contact is edited
-    // PUT
-    // url: /api/contacts/:id
-    // all params: id, full_name, email, phone_number, tags
+  updateContact(contact) {
+    $.ajax({
+      type: 'PUT',
+      url: `/api/contacts/${contact.id}`,
+      headers: { 'Content-Type': 'application/json'},
+      data: JSON.stringify(contact),
+      dataType: 'json'
+    });
+
+    // edit contact info in in-memory store
+    let prevContact = this.contacts.filter(
+      c => Number(c.id) === Number(contact.id)
+    )[0];
+    
+    let prevContactIdx = this.contacts.indexOf(prevContact);
+    if (prevContactIdx !== -1) { this.contacts[prevContactIdx] = contact; }
   }
 
   deleteContact(id) {
