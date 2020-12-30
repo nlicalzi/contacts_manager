@@ -1,8 +1,5 @@
 class View {
-  constructor() {
-    // this.extractFormData.bind(this);
-    // this.manualValidate.bind(this);
-  }
+  constructor() {}
 
   extractFormData = (form) => {
     let inputVals = {};
@@ -97,8 +94,10 @@ class View {
 
   bindSearchBarInput(handler) {
     $('.container').on('keyup', '#search', (e) => {
-      if (e.key.length === 1 && e.key.match(/\w|[ ]/)) {
+      if (e.key.length === 1 && e.key.match(/\w|[ ]/) || e.key === 'Backspace') {
         handler(e.target.value);
+      } else if (e.target.value.length === 0) {
+        handler('RESET');
       }
     });
   }

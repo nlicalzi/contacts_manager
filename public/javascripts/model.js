@@ -31,6 +31,9 @@ class Model {
   }
 
   updateContact(id) { // Called when contact is edited
+    // PUT
+    // url: /api/contacts/:id
+    // all params: id, full_name, email, phone_number, tags
   }
 
   deleteContact(id) {

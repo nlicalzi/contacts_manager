@@ -10,24 +10,24 @@ class Controller {
 
   async loadInitialState() {
     await this.loadContactsFromServer();
-    this.renderContactsList();
+    this.refreshContactsList();
   }
 
   async loadContactsFromServer() {
     this.model.contacts = await this.model.getAllContacts();
   }
 
-  renderContactsList = () => {
+  renderContactsList = (contacts) => {
     if (this.model.contacts.length === 0) {
       this.view.renderNoContactsCard();
     } else {
-      this.model.contacts.forEach(contact => this.view.renderContact(contact))
+      contacts.forEach(contact => this.view.renderContact(contact))
     }
   }
 
-  refreshContactsList = () => {
+  refreshContactsList = (contacts = this.model.contacts) => {
     this.view.clearAllContacts();
-    this.renderContactsList();
+    this.renderContactsList(contacts);
   }
 
   handleSubmitAddedContact = (partialContact) => {
@@ -41,7 +41,15 @@ class Controller {
   }
 
   handleSearchBarInput = (input) => { 
-    console.log(input);
+    let matches = this.model.contacts.filter(
+      contact => contact['full_name'].toLowerCase().match(input)
+    );
+
+    if (input === 'RESET') {
+      this.refreshContactsList()
+    } else {
+      this.refreshContactsList(matches);
+    }
   }
 
   bindHandlers = () => {
