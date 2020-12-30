@@ -1,7 +1,22 @@
 class View {
   constructor() {
-    // this.bindAllMethods();
-    // this.registerEvents();
+    // this.extractFormData.bind(this);
+    // this.manualValidate.bind(this);
+  }
+
+  extractFormData(form) {
+    let inputVals = {};
+    [...form.elements].forEach(el => {
+      if (el.tagName === 'INPUT') {
+        inputVals[el.id] = el.value;
+      };
+    });
+    return inputVals;
+  }
+
+  manualValidate(event) {
+    event.target.checkValidity();
+    return false;
   }
 
   showContainer() {
@@ -18,6 +33,10 @@ class View {
 
   clearContact(id) {
     $(`li[data-id=${id}]`).remove()
+  }
+
+  clearAllContacts() {
+    $(`li`).remove();
   }
 
   renderNoContactsCard() {
@@ -37,39 +56,46 @@ class View {
 
   bindAddContact(handler) {
     $('.container').on('click', '.add-contact', (e) => {
-      console.log('adding');
+      this.showNewContactForm();
     });
   }
 
-  bindSubmitContact() {
-    $('.container').on('click', '#submit', (e) => {
-      console.log('submitting');
+  bindSubmitContact(handler) {
+    $('.container').on('submit', '.new-contact-form', (e) => {
+      e.preventDefault();
+      let form = e.target.closest('form');
+      let inputs = this.extractFormData(form);
+      handler(inputs);
     });
   }
 
-  bindEditContact() {
-    $('.container').on('click', '#edit', (e) => {
-      console.log('editing');
-    });
-  }
-
-  bindSubmitEditedContact() {
-
-  }
-
-  bindDeleteContact() {
-    $('.container').on('click', '#delete', (e) => {
-      console.log('deleting');
-    });
-  }
-
-  bindCancelButton() {
+  bindCancelButton(handler) {
     $('.container').on('click', '#cancel', (e) => {
-      console.log('canceling');
+      this.hideNewContactForm();
     });
   }
 
-  bindSearchBarInput() {
+  bindEditContact(handler) {
+    $('.container').on('click', '#edit', (e) => {
+      let id = e.target.closest('li').dataset.id;
+      console.log(`editing contact number ${id}`);
+    });
+  }
+
+  bindSubmitEditedContact(handler) {
+    $('.container').on('click', '#submitEdit', (e) => {
+      console.log('submiting edit');
+    });
+  }
+
+  bindDeleteContact(handler) {
+    $('.container').on('click', '#delete', (e) => {
+      let id = e.target.closest('li').dataset.id;
+      handler(id);
+    });
+  }
+
+  bindSearchBarInput(handler) {
     $('.container').on('change', '#search', (e) => {
       console.log('searching');
     });

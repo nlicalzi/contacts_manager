@@ -18,19 +18,25 @@ class Model {
     });
   }
 
-  createContact(contact) {
-
+  createContact(partialContact) {
+    let {full_name, email, phone_number} = partialContact;
+    console.log('creating contact: ' + String(partialContact));
+    this.onContactListChanged(this.contacts);
   }
 
   updateContact(id) {
-
+    // this.onContactListChanged(this.contacts);
   }
 
   deleteContact(id) {
-
+    // this.onContactListChanged(this.contacts);
   }
 
   #incrementId() {
     // map this.contacts to id, return largest el in array + 1
+  }
+
+  bindContactListChanged(callback) {
+    this.onContactListChanged = callback;
   }
 }
