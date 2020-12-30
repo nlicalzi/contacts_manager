@@ -45,7 +45,7 @@ class Controller {
       contact => contact['full_name'].toLowerCase().match(input)
     );
 
-    if (input === 'RESET') {
+    if (input === 'RESET_SEARCH_FORM') {
       this.refreshContactsList()
     } else {
       this.refreshContactsList(matches);

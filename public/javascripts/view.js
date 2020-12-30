@@ -97,7 +97,7 @@ class View {
       if (e.key.length === 1 && e.key.match(/\w|[ ]/) || e.key === 'Backspace') {
         handler(e.target.value);
       } else if (e.target.value.length === 0) {
-        handler('RESET');
+        handler('RESET_SEARCH_FORM');
       }
     });
   }
