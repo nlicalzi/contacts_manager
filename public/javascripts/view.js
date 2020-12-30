@@ -5,7 +5,7 @@ class View {
     let inputVals = {};
     [...form.elements].forEach(el => {
       if (el.tagName === 'INPUT') {
-        inputVals[el.id] = el.value;
+        inputVals[el.dataset.formid] = el.value;
       };
     });
     return inputVals;
@@ -51,10 +51,40 @@ class View {
     $('#contact-form-card').slideUp();
   }
 
-  bindAddContact(handler) {
+  showContactsList() {
+    $('#contacts-container').slideDown();
+  }
+
+  hideContactsList() {
+    $('#contacts-container').slideUp();
+  }
+
+  showEditContactForm() {
+    $('#edit-contact-form').slideDown();
+  }
+
+  hideEditContactForm() {
+    $('#edit-contact-form').slideUp();
+  }
+
+  bindAddContact() {
     $('.container').on('click', '.add-contact', (e) => {
+      this.hideContactsList();
       this.showNewContactForm();
     });
+  }
+
+  bindCancelButton() {
+    $('.container').on('click', '#cancelNew', (e) => {
+      this.hideNewContactForm();
+      this.showContactsList();
+    });
+
+    $('.container').on('click', '#cancelEdit', (e) => {
+      this.hideEditContactForm();
+      this.showContactsList();
+      console.log('cancel edit')
+    }); 
   }
 
   bindSubmitContact(handler) {
@@ -62,13 +92,10 @@ class View {
       e.preventDefault();
       let form = e.target.closest('form');
       let inputs = this.extractFormData(form);
+      console.log(inputs);
       handler(inputs);
-    });
-  }
-
-  bindCancelButton(handler) {
-    $('.container').on('click', '#cancel', (e) => {
       this.hideNewContactForm();
+      // contactslist isn't being displayed properly here
     });
   }
 
@@ -76,6 +103,8 @@ class View {
     $('.container').on('click', '#edit', (e) => {
       let id = e.target.closest('li').dataset.id;
       console.log(`editing contact number ${id}`);
+      this.showEditContactForm();
+      this.hideContactsList();
     });
   }
 
@@ -105,5 +134,4 @@ class View {
   // TO IMPLEMENT
   // renderEditContactForm() {}
   // renderTags() {}
-  // renderSearchedContacts(contacts) {}
 }

@@ -29,6 +29,44 @@
     </div>
     <div id="no-contacts-card" class="card"></div>
     <div id="contacts-container" class="media-list row top-buffer"></div>
+    <div id="edit-contact-form" class="card hidden">
+      <div class="row justify-content-center top-buffer">
+        <form class="edit-contact-form">
+          <h3 class="form-group justify-content-center row">Edit Contact Form</h3>
+          <div class="form-group row">
+            <label for="input-name" class="col-sm-4 col-form-label">Full Name:</label>
+            <div class="col-8">
+              <input type="text" class="form-control" id="editContactFullName" data-formid="full_name"
+              placeholder="..."
+              required>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="input-email" class="col-sm-4 col-form-label">Email:</label>
+            <div class="col-8">
+              <input type="email" class="form-control" id="editContactEmail" data-formid="email"
+              placeholder="..."
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              required>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="input-phone-number" class="col-sm-4 col-form-label">US Tel. #:</label>
+            <div class="col-8">
+              <input type="tel" class="form-control" id="editContactPhoneNumber" data-formid="phone_number"
+              placeholder="ex. 212-123-1234"
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+              title="Please match the format specified in the example (xxx-xxx-xxxx)"
+              required>
+            </div>
+          </div>
+          <div class="form-group row justify-content-center">
+            <button id="submitEdit" type="submit" class="contact-form-btn btn btn-outline-primary">Submit</button>
+            <button id="cancelEdit" type="button" class="contact-form-btn btn btn-outline-primary">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
     <div id="contact-form-card" class="card hidden">
       <div class="row justify-content-center top-buffer">
         <form class="new-contact-form">
@@ -36,27 +74,33 @@
           <div class="form-group row">
             <label for="input-name" class="col-sm-4 col-form-label">Full Name:</label>
             <div class="col-8">
-              <input type="text" class="form-control" id="full_name" placeholder="..." >
+              <input type="text" class="form-control" id="newContactFullName" data-formid="full_name"
+              placeholder="..."
+              required>
             </div>
           </div>
           <div class="form-group row">
             <label for="input-email" class="col-sm-4 col-form-label">Email:</label>
             <div class="col-8">
-              <input type="email" class="form-control" id="email" placeholder="..." 
-              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+              <input type="email" class="form-control" id="newContactEmail" data-formid="email"
+              placeholder="..."
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              required>
             </div>
           </div>
           <div class="form-group row">
             <label for="input-phone-number" class="col-sm-4 col-form-label">US Tel. #:</label>
             <div class="col-8">
-              <input type="tel" class="form-control" id="phone_number" placeholder="ex. 212-123-1234" 
+              <input type="tel" class="form-control" id="newContactPhoneNumber" data-formid="phone_number"
+              placeholder="ex. 212-123-1234"
               pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-              title="Please match the format specified in the example (xxx-xxx-xxxx)">
+              title="Please match the format specified in the example (xxx-xxx-xxxx)"
+              required>
             </div>
           </div>
           <div class="form-group row justify-content-center">
             <button id="submitNew" type="submit" class="contact-form-btn btn btn-outline-primary">Submit</button>
-            <button id="cancel" type="button" class="contact-form-btn btn btn-outline-primary">Cancel</button>
+            <button id="cancelNew" type="button" class="contact-form-btn btn btn-outline-primary">Cancel</button>
           </div>
         </form>
       </div>
