@@ -70,6 +70,7 @@ class View {
   bindAddContact() {
     $('.container').on('click', '.add-contact', (e) => {
       this.hideContactsList();
+      this.hideEditContactForm();
       this.showNewContactForm();
     });
   }
