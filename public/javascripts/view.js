@@ -121,7 +121,7 @@ class View {
   }
 
   bindSubmitEditedContact(handler) {
-    $('.container').on('click', '#submitEdit', (e) => {
+    $('.container').on('submit', '.edit-contact-form', (e) => {
       e.preventDefault();
       let form = e.target.closest('form');
       let contact = this.extractFormData(form);
@@ -151,6 +151,7 @@ class View {
     });
   }
 
-  // TO IMPLEMENT
-  // renderTags() {}
+  bindTagClick(handler) {
+    // add click event to tags
+  }
 }

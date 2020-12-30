@@ -70,9 +70,14 @@ class Controller {
     }
   }
 
+  handleTagClick() {
+    // filter display list by clicked tag
+  }
+
   bindHandlers = () => {
     this.view.bindAddContact();
     this.view.bindCancelButton();
+    this.view.bindTagClick(this.handleTagClick);
     this.view.bindSubmitContact(this.handleSubmitAddedContact);
     this.view.bindEditContact(this.handleEditContact);
     this.view.bindSubmitEditedContact(this.handleSubmitEditedContact);
