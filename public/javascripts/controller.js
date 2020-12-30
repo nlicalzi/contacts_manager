@@ -50,10 +50,18 @@ class Controller {
     this.view.bindSearchBarInput(this.handleSearchBarInput);
   }
 
+  // debounce(func, delay) => {
+  //   let timeout;
+  //   return (...args) => {
+  //     if (timeout) { clearTimeout(timeout); }
+  //     timeout = setTimeout(() => func.apply(null, args), delay);
+  //   };
+  // };
+
   // TO IMPLEMENT
-  handleAddContact = (contact) => {}
-  handleEditContact = () => {}
-  handleSubmitEditedContact = () => {}
-  handleCancelButton = () => {}
-  handleSearchBarInput = () => {}
+  // handleSearchBarInput = () => { // debounce in here before it gets to the model? }
+  // handleAddContact = (contact) => {}
+  // handleEditContact = () => {}
+  // handleSubmitEditedContact = () => {}
+  // handleCancelButton = () => {}
 }

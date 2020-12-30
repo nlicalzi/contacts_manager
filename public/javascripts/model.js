@@ -30,7 +30,7 @@ class Model {
     this.contacts.push(contact);
   }
 
-  updateContact(id) {
+  updateContact(id) { // Called when contact is edited
   }
 
   deleteContact(id) {
@@ -46,4 +46,8 @@ class Model {
     let maxId = Math.max(...this.contacts.map(el => el.id));
     return maxId + 1;
   }
+
+  // TO IMPLEMENT
+  // filter contacts based on search input (search bar input)
+  // filter contacts based on tag selection (tag button click)
 }
