@@ -34,7 +34,7 @@
         <form class="edit-contact-form" data-latestid="">
           <h3 class="form-group justify-content-center row">Edit Contact Form</h3>
           <div class="form-group row">
-            <label for="input-name" class="col-sm-4 col-form-label">Full Name:</label>
+            <label for="editContactFullName" class="col-sm-4 col-form-label">Full Name:</label>
             <div class="col-8">
               <input type="text" class="form-control" id="editContactFullName" data-formid="full_name"
               placeholder="..."
@@ -42,7 +42,7 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="input-email" class="col-sm-4 col-form-label">Email:</label>
+            <label for="editContactEmail" class="col-sm-4 col-form-label">Email:</label>
             <div class="col-8">
               <input type="email" class="form-control" id="editContactEmail" data-formid="email"
               placeholder="..."
@@ -51,7 +51,7 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="input-phone-number" class="col-sm-4 col-form-label">US Tel. #:</label>
+            <label for="editContactPhoneNumber" class="col-sm-4 col-form-label">US Tel. #:</label>
             <div class="col-8">
               <input type="tel" class="form-control" id="editContactPhoneNumber" data-formid="phone_number"
               placeholder="ex. 212-123-1234"
@@ -61,11 +61,11 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="input-tags" class="col-sm-4 col-form-label">Tags:</label>
+            <label for="editContactTags" class="col-sm-4 col-form-label">Tags:</label>
             <div class="col-8">
-              <input type="text" class="form-control" id="editTags" data-formid="tags"
-              placeholder="ex. work, marketing, email (optional)"
-              pattern="[a-zA-Z ,]"
+              <input type="text" class="form-control" id="editContactTags" data-formid="tags"
+              placeholder="ex. work, marketing, email (optional, comma-separated)"
+              pattern="[a-zA-z]+(,[a-zA-z]+){0,100}"
               title="Please match the format specified in the example (comma-separated values)">
             </div>
           </div>
@@ -81,7 +81,7 @@
         <form class="new-contact-form">
           <h3 class="form-group justify-content-center row">New Contact Form</h3>
           <div class="form-group row">
-            <label for="input-name" class="col-sm-4 col-form-label">Full Name:</label>
+            <label for="newContactFullName" class="col-sm-4 col-form-label">Full Name:</label>
             <div class="col-8">
               <input type="text" class="form-control" id="newContactFullName" data-formid="full_name"
               placeholder="..."
@@ -89,7 +89,7 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="input-email" class="col-sm-4 col-form-label">Email:</label>
+            <label for="newContactEmail" class="col-sm-4 col-form-label">Email:</label>
             <div class="col-8">
               <input type="email" class="form-control" id="newContactEmail" data-formid="email"
               placeholder="..."
@@ -98,13 +98,22 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="input-phone-number" class="col-sm-4 col-form-label">US Tel. #:</label>
+            <label for="newContactPhoneNumber" class="col-sm-4 col-form-label">US Tel. #:</label>
             <div class="col-8">
               <input type="tel" class="form-control" id="newContactPhoneNumber" data-formid="phone_number"
               placeholder="ex. 212-123-1234"
               pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
               title="Please match the format specified in the example (xxx-xxx-xxxx)"
               required>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="newContactTags" class="col-sm-4 col-form-label">Tags:</label>
+            <div class="col-8">
+              <input type="text" class="form-control" id="newContactTags" data-formid="tags"
+              placeholder="ex. work, marketing, email (optional, comma-separated)"
+              pattern="[a-zA-z]+(,[a-zA-z]+){0,100}"
+              title="Please match the format specified in the example (comma-separated values)">
             </div>
           </div>
           <div class="form-group row justify-content-center">
@@ -134,6 +143,8 @@
           <dd>{{phone_number}}</dd>
           <dt>Email:</dt>
           <dd>{{email}}</dd>
+          <dt>Tags:</dt>
+          <dd>{{tags}}</dd>
         </dl>
       </div>
       <div class="contact-btn-wrapper">

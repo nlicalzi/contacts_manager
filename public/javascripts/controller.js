@@ -45,11 +45,12 @@ class Controller {
     $('.edit-contact-form')[0].setAttribute('data-latestid', id);
 
     let contact = this.model.contacts.filter(contact => contact.id === Number(id))[0];
-    let { full_name, email, phone_number } = contact;
+    let { full_name, email, phone_number, tags } = contact;
 
     $('#editContactFullName').val(full_name);
     $('#editContactEmail').val(email);
     $('#editContactPhoneNumber').val(phone_number);
+    $('#editContactTags').val(tags)
   }
 
   handleSubmitEditedContact = (contact) => {

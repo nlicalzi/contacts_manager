@@ -1,7 +1,5 @@
-// Logic for running the app goes here
 class App {
   constructor() {
-    // state
     this.model = new Model();
     this.view = new View();
     this.controller = new Controller(this.model, this.view);
@@ -10,7 +8,3 @@ class App {
 
 let app;
 $(app = new App());
-
-
-// TO DO:
-// implement tagging

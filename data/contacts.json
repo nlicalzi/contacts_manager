@@ -3,14 +3,14 @@
     "id": 2,
     "full_name": "Victor Reyes",
     "email": "vpr@example.com",
-    "phone_number": "11333",
-    "tags": ""
+    "phone_number": "123-123-1234",
+    "tags": "play,work"
   },
   {
     "full_name": "Abigail DeAtley",
     "phone_number": "561-866-6882",
     "email": "ad@gm.co",
-    "tags": null,
+    "tags": "fun,business",
     "id": 3
   },
   {
@@ -47,5 +47,12 @@
     "email": "tt@tt.tt",
     "tags": null,
     "id": 9
+  },
+  {
+    "full_name": "test guy",
+    "phone_number": "123-123-1234",
+    "email": "imtesting@te.st",
+    "tags": "work,play,active",
+    "id": 10
   }
 ]
