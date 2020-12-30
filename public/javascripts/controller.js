@@ -70,7 +70,18 @@ class Controller {
     };
   };
 
-  // TO IMPLEMENT
-  // handleEditContact = () => {}
-  // handleSubmitEditedContact = () => {}
+  handleEditContact = (id) => {
+    let form = $('.edit-contact-form');
+
+    let contact = this.model.contacts.filter(contact => contact.id === Number(id))[0];
+    let { full_name, email, phone_number } = contact;
+
+    $('#editContactFullName').val(full_name);
+    $('#editContactEmail').val(email);
+    $('#editContactPhoneNumber').val(phone_number);
+  }
+
+  handleSubmitEditedContact = (id) => {
+    
+  }
 }

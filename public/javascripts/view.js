@@ -83,7 +83,6 @@ class View {
     $('.container').on('click', '#cancelEdit', (e) => {
       this.hideEditContactForm();
       this.showContactsList();
-      console.log('cancel edit')
     }); 
   }
 
@@ -102,7 +101,8 @@ class View {
   bindEditContact(handler) {
     $('.container').on('click', '#edit', (e) => {
       let id = e.target.closest('li').dataset.id;
-      console.log(`editing contact number ${id}`);
+      handler(id);
+
       this.showEditContactForm();
       this.hideContactsList();
     });
@@ -110,7 +110,11 @@ class View {
 
   bindSubmitEditedContact(handler) {
     $('.container').on('click', '#submitEdit', (e) => {
-      console.log('submiting edit');
+      let id = e.target.closest('li').dataset.id;
+      handler(id);
+
+      this.hideEditContactForm();
+      this.showContactsList();
     });
   }
 
