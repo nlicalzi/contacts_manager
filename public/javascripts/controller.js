@@ -10,14 +10,14 @@ class Controller {
 
   async loadInitialState() {
     await this.loadContactsFromServer();
-    await this.renderContactsList();
+    this.renderContactsList();
   }
 
   async loadContactsFromServer() {
     this.model.contacts = await this.model.getAllContacts();
   }
 
-  async renderContactsList() {
+  renderContactsList() {
     if (this.model.contacts.length === 0) {
       this.view.renderNoContactsCard();
     } else {
@@ -25,7 +25,7 @@ class Controller {
     }
   }
 
-  onContactListChanged = () => {
+  refreshContactsList = () => {
     this.view.clearAllContacts();
     this.renderContactsList();
   }
@@ -34,22 +34,22 @@ class Controller {
   }
 
   handleSubmitAddedContact = (partialContact) => {
-    console.log(partialContact);
     this.model.createContact(partialContact);
+    this.refreshContactsList();
   }
 
   handleEditContact = () => {}
   handleSubmitEditedContact = () => {}
+
   handleDeleteContact = (id) => {
-    this.model.deleteContact(id);   // not working yet
-    this.view.clearContact(id);     // working
+    this.model.deleteContact(id);
+    this.view.clearContact(id);
   }
+
   handleCancelButton = () => {}
   handleSearchBarInput = () => {}
 
   bindHandlers() {
-    this.model.bindContactListChanged(this.onContactListChanged);
-
     this.view.bindAddContact(this.handleAddContact);
     this.view.bindSubmitContact(this.handleSubmitAddedContact);
     this.view.bindEditContact(this.handleEditContact);

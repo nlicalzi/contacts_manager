@@ -4,7 +4,7 @@ class View {
     // this.manualValidate.bind(this);
   }
 
-  extractFormData(form) {
+  extractFormData = (form) => {
     let inputVals = {};
     [...form.elements].forEach(el => {
       if (el.tagName === 'INPUT') {
@@ -31,11 +31,11 @@ class View {
     $('#contacts-container').append(compiled(contact));
   }
 
-  clearContact(id) {
+  clearContact = (id) => {
     $(`li[data-id=${id}]`).remove()
   }
 
-  clearAllContacts() {
+  clearAllContacts = () => {
     $(`li`).remove();
   }
 

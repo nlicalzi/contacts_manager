@@ -13,30 +13,37 @@ class Model {
 
   getAllContacts() {
     return $.get({
-      url: '/api/contacts',
+      url: '/api/contacts/',
       dataType: 'json',
     });
   }
 
-  createContact(partialContact) {
-    let {full_name, email, phone_number} = partialContact;
-    console.log('creating contact: ' + String(partialContact));
-    this.onContactListChanged(this.contacts);
+  createContact(contact) {
+    $.ajax({
+      type: 'POST',
+      url: '/api/contacts/',
+      headers: { 'Content-Type': 'application/json'},
+      data: JSON.stringify(contact),
+      dataType: 'json'
+    });
+    contact['id'] = this.#incrementId();
+    this.contacts.push(contact);
   }
 
   updateContact(id) {
-    // this.onContactListChanged(this.contacts);
   }
 
   deleteContact(id) {
-    // this.onContactListChanged(this.contacts);
+    $.ajax({
+      type: 'DELETE',
+      url: `/api/contacts/${id}`,
+    });
+    let idx = this.contacts.map(el => el.id).indexOf(Number(id));
+    this.contacts.splice(idx, 1);
   }
 
   #incrementId() {
-    // map this.contacts to id, return largest el in array + 1
-  }
-
-  bindContactListChanged(callback) {
-    this.onContactListChanged = callback;
+    let maxId = Math.max(...this.contacts.map(el => el.id));
+    return maxId + 1;
   }
 }
