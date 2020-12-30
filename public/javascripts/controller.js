@@ -54,6 +54,7 @@ class Controller {
 
   handleSubmitEditedContact = (contact) => {
     this.model.updateContact(contact);
+    
     this.refreshContactsList();
   }
 

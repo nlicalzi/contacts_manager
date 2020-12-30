@@ -10,3 +10,7 @@ class App {
 
 let app;
 $(app = new App());
+
+
+// TO DO:
+// implement tagging

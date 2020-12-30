@@ -39,11 +39,10 @@ class Model {
       dataType: 'json'
     });
 
-    // edit contact info in in-memory store
     let prevContact = this.contacts.filter(
       c => Number(c.id) === Number(contact.id)
     )[0];
-    
+
     let prevContactIdx = this.contacts.indexOf(prevContact);
     if (prevContactIdx !== -1) { this.contacts[prevContactIdx] = contact; }
   }
@@ -63,6 +62,5 @@ class Model {
   }
 
   // TO IMPLEMENT
-  // filter contacts based on search input (search bar input)
   // filter contacts based on tag selection (tag button click)
 }

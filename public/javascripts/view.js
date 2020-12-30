@@ -78,11 +78,19 @@ class View {
     $('.container').on('click', '#cancelNew', (e) => {
       this.hideNewContactForm();
       this.showContactsList();
+
+      $(".new-contact-form :input").each(function() {
+        this.value = "";
+      });
     });
 
     $('.container').on('click', '#cancelEdit', (e) => {
       this.hideEditContactForm();
       this.showContactsList();
+
+      $(".edit-contact-form :input").each(function() {
+        this.value = "";
+      });
     }); 
   }
 
@@ -94,7 +102,10 @@ class View {
 
       handler(contact);
       this.hideNewContactForm();
-      // contactslist isn't being displayed properly here
+
+      $(".new-contact-form :input").each(function() {
+        this.value = "";
+      })
     });
   }
 
