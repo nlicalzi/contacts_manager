@@ -1,5 +1,5 @@
 class Model {
-  // contact: { id, name, email, phone_number, tags }
+  // implement tagging
   constructor() {
     this.contacts = [];
   }

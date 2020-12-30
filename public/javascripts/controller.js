@@ -30,24 +30,15 @@ class Controller {
     this.renderContactsList();
   }
 
-  handleAddContact = (contact) => {
-  }
-
   handleSubmitAddedContact = (partialContact) => {
     this.model.createContact(partialContact);
     this.refreshContactsList();
   }
 
-  handleEditContact = () => {}
-  handleSubmitEditedContact = () => {}
-
   handleDeleteContact = (id) => {
     this.model.deleteContact(id);
     this.view.clearContact(id);
   }
-
-  handleCancelButton = () => {}
-  handleSearchBarInput = () => {}
 
   bindHandlers() {
     this.view.bindAddContact(this.handleAddContact);
@@ -58,4 +49,11 @@ class Controller {
     this.view.bindCancelButton(this.handleCancelButton);
     this.view.bindSearchBarInput(this.handleSearchBarInput);
   }
+
+  // TO IMPLEMENT
+  handleAddContact = (contact) => {}
+  handleEditContact = () => {}
+  handleSubmitEditedContact = () => {}
+  handleCancelButton = () => {}
+  handleSearchBarInput = () => {}
 }

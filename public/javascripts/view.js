@@ -101,15 +101,8 @@ class View {
     });
   }
 
-  // renderEditContactForm() {
-
-  // }
-
-  // renderTags() {
-
-  // }
-
-  // renderSearchedContacts(contacts) {
-
-  // }
+  // TO IMPLEMENT
+  // renderEditContactForm() {}
+  // renderTags() {}
+  // renderSearchedContacts(contacts) {}
 }
