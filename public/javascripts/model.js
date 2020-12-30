@@ -60,7 +60,4 @@ class Model {
     let maxId = Math.max(...this.contacts.map(el => el.id));
     return maxId + 1;
   }
-
-  // TO IMPLEMENT
-  // filter contacts based on tag selection (tag button click)
 }

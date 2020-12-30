@@ -22,6 +22,9 @@ class View {
 
   renderContact(contact) {
     $('#no-contacts-card').hide();
+    if (contact['tags'] && typeof contact['tags'] === 'string') {
+      contact['tags'] = contact['tags'].split(',');
+    }
 
     let template = $('#contactsTemplate').html();
     let compiled = Handlebars.compile(template);
@@ -152,6 +155,19 @@ class View {
   }
 
   bindTagClick(handler) {
-    // add click event to tags
+    $('.container').on('click', 'a', (e) => {
+      e.preventDefault();
+      let tag = e.target.text;
+      handler(tag);
+
+      $('.clear-tag-filtering').show();
+    });
+  }
+
+  bindClearTagClick(handler) {
+    $('.clear-tag-filtering').on('click', (e) => {
+      $('.clear-tag-filtering').hide();
+      handler();
+    });
   }
 }

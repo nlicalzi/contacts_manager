@@ -71,13 +71,21 @@ class Controller {
     }
   }
 
-  handleTagClick() {
-    // filter display list by clicked tag
+  handleTagClick = (tag) => {
+    let contactsWithTag = this.model.contacts.filter(function(contact) {
+      if (contact.tags) { return contact.tags.includes(tag) }
+    });
+    this.refreshContactsList(contactsWithTag);
+  }
+
+  handleClearTagClick = () => {
+    this.refreshContactsList();
   }
 
   bindHandlers = () => {
     this.view.bindAddContact();
     this.view.bindCancelButton();
+    this.view.bindClearTagClick(this.handleClearTagClick);
     this.view.bindTagClick(this.handleTagClick);
     this.view.bindSubmitContact(this.handleSubmitAddedContact);
     this.view.bindEditContact(this.handleEditContact);
