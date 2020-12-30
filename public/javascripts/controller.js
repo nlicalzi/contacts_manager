@@ -17,7 +17,7 @@ class Controller {
     this.model.contacts = await this.model.getAllContacts();
   }
 
-  renderContactsList() {
+  renderContactsList = () => {
     if (this.model.contacts.length === 0) {
       this.view.renderNoContactsCard();
     } else {
@@ -40,26 +40,29 @@ class Controller {
     this.view.clearContact(id);
   }
 
-  bindHandlers() {
+  handleSearchBarInput = (input) => { 
+    console.log(input);
+  }
+
+  bindHandlers = () => {
     this.view.bindAddContact(this.handleAddContact);
     this.view.bindSubmitContact(this.handleSubmitAddedContact);
     this.view.bindEditContact(this.handleEditContact);
     this.view.bindSubmitEditedContact(this.handleSubmitEditedContact);
     this.view.bindDeleteContact(this.handleDeleteContact);
     this.view.bindCancelButton(this.handleCancelButton);
-    this.view.bindSearchBarInput(this.handleSearchBarInput);
+    this.view.bindSearchBarInput(this.debounce(this.handleSearchBarInput, 200));
   }
 
-  // debounce(func, delay) => {
-  //   let timeout;
-  //   return (...args) => {
-  //     if (timeout) { clearTimeout(timeout); }
-  //     timeout = setTimeout(() => func.apply(null, args), delay);
-  //   };
-  // };
+  debounce = (func, delay) => {
+    let timeout;
+    return (...args) => {
+      if (timeout) { clearTimeout(timeout); }
+      timeout = setTimeout(() => func.apply(null, args), delay);
+    };
+  };
 
   // TO IMPLEMENT
-  // handleSearchBarInput = () => { // debounce in here before it gets to the model? }
   // handleAddContact = (contact) => {}
   // handleEditContact = () => {}
   // handleSubmitEditedContact = () => {}

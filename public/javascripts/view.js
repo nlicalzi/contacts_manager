@@ -96,11 +96,9 @@ class View {
   }
 
   bindSearchBarInput(handler) {
-    $('.container').on('keydown', '#search', (e) => {
-      // implement debounce function to not flood the server?
-      // (do we need this? in-mem store)
+    $('.container').on('keyup', '#search', (e) => {
       if (e.key.length === 1 && e.key.match(/\w|[ ]/)) {
-        console.log(e.key);
+        handler(e.target.value);
       }
     });
   }
