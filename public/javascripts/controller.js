@@ -5,7 +5,7 @@ class Controller {
 
     this.bindHandlers();
     this.loadInitialState();
-    this.view.showContainer();
+    this.view.revealContainer();
   }
 
   async loadInitialState() {
@@ -19,7 +19,7 @@ class Controller {
 
   renderContactsList = (contacts) => {
     if (this.model.contacts.length === 0) {
-      this.view.renderNoContactsCard();
+      this.view.showNoContactsCard();
     } else {
       contacts.forEach(contact => this.view.renderContact(contact))
     }
@@ -37,8 +37,10 @@ class Controller {
   }
 
   handleDeleteContact = (id) => {
-    this.model.deleteContact(id);
-    this.view.clearContact(id);
+    if (confirm("Are you sure you want to delete this contact? It can't be undone.")) {
+      this.model.deleteContact(id);
+      this.refreshContactsList();
+    }
   }
 
   handleEditContact = (id) => {
@@ -82,9 +84,13 @@ class Controller {
     this.refreshContactsList();
   }
 
+  handleCancelButton = () => {
+    this.refreshContactsList();
+  }
+
   bindHandlers = () => {
     this.view.bindAddContact();
-    this.view.bindCancelButton();
+    this.view.bindCancelButton(this.handleCancelButton);
     this.view.bindClearTagClick(this.handleClearTagClick);
     this.view.bindTagClick(this.handleTagClick);
     this.view.bindSubmitContact(this.handleSubmitAddedContact);

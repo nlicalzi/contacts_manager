@@ -1,6 +1,4 @@
 class View {
-  constructor() {}
-
   extractFormData = (form) => {
     let inputVals = {};
     [...form.elements].forEach(el => {
@@ -16,7 +14,7 @@ class View {
     return false;
   }
 
-  showContainer() {
+  revealContainer() {
     $('.container').slideDown();
   }
 
@@ -39,11 +37,8 @@ class View {
     $(`li`).remove();
   }
 
-  renderNoContactsCard() {
-    $('#contacts-container').hide();
-
-    let emptyContactsTemplate = $('#emptyContactsTemplate').html()
-    $('#no-contacts-card').append(emptyContactsTemplate);
+  showNoContactsCard() {
+    $('#no-contacts-card').slideDown();
   }
 
   showNewContactForm() {
@@ -70,15 +65,20 @@ class View {
     $('#edit-contact-form').slideUp();
   }
 
+  hideNoContactCard() {
+    $('#no-contacts-card').slideUp();
+  }
+
   bindAddContact() {
     $('.container').on('click', '.add-contact', (e) => {
       this.hideContactsList();
+      this.hideNoContactCard()
       this.hideEditContactForm();
       this.showNewContactForm();
     });
   }
 
-  bindCancelButton() {
+  bindCancelButton(handler) {
     $('.container').on('click', '#cancelNew', (e) => {
       this.hideNewContactForm();
       this.showContactsList();
@@ -95,7 +95,8 @@ class View {
       $(".edit-contact-form :input").each(function() {
         this.value = "";
       });
-    }); 
+    });
+    handler();
   }
 
   bindSubmitContact(handler) {

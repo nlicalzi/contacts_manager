@@ -6,5 +6,4 @@ class App {
   }
 }
 
-let app;
-$(app = new App());
+$(new App());

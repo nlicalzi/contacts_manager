@@ -1,58 +1,23 @@
 [
   {
-    "id": 2,
-    "full_name": "Victor Reyes",
-    "email": "vpr@example.com",
+    "full_name": "tian wang",
     "phone_number": "123-123-1234",
-    "tags": "play,work"
-  },
-  {
-    "full_name": "Abigail DeAtley",
-    "phone_number": "561-866-6882",
-    "email": "ad@gm.co",
-    "tags": "fun,business",
+    "email": "tw@tw.co",
+    "tags": "family,friend",
     "id": 3
   },
   {
-    "full_name": "tian wang",
-    "phone_number": "123-123-1235",
-    "email": "tw@gm.co",
-    "tags": null,
+    "full_name": "emmett kim",
+    "phone_number": "123-123-1231",
+    "email": "ek@ek.ek",
+    "tags": "work,friend",
     "id": 5
   },
   {
-    "full_name": "donald j trump",
-    "phone_number": "646-420-6969",
-    "email": "djt@maga.io",
-    "tags": null,
+    "full_name": "hh j",
+    "phone_number": "123-123-1234",
+    "email": "ggg@bb.ci",
+    "tags": "",
     "id": 6
-  },
-  {
-    "full_name": "nicholas licalzi",
-    "phone_number": "646-351-9917",
-    "email": "nl@gm.co",
-    "tags": null,
-    "id": 7
-  },
-  {
-    "full_name": "qwe",
-    "phone_number": "123-123-1234",
-    "email": "22@tt.tt",
-    "tags": null,
-    "id": 8
-  },
-  {
-    "full_name": "ttt Test",
-    "phone_number": "123-123-1234",
-    "email": "tt@tt.tt",
-    "tags": null,
-    "id": 9
-  },
-  {
-    "full_name": "test guy",
-    "phone_number": "123-123-1234",
-    "email": "imtesting@te.st",
-    "tags": "work,play,active",
-    "id": 10
   }
 ]

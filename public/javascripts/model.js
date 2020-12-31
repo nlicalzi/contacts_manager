@@ -1,5 +1,4 @@
 class Model {
-  // implement tagging
   constructor() {
     this.contacts = [];
   }
