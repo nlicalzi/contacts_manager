@@ -1,23 +1,9 @@
 [
   {
-    "full_name": "tian wang",
+    "full_name": "nicholas licalzi",
     "phone_number": "123-123-1234",
-    "email": "tw@tw.co",
-    "tags": "family,friend",
-    "id": 3
-  },
-  {
-    "full_name": "emmett kim",
-    "phone_number": "123-123-1231",
-    "email": "ek@ek.ek",
-    "tags": "work,friend",
-    "id": 5
-  },
-  {
-    "full_name": "hh j",
-    "phone_number": "123-123-1234",
-    "email": "ggg@bb.ci",
-    "tags": "",
-    "id": 6
+    "email": "nlicalzi@gmail.com",
+    "tags": "work,me",
+    "id": 1
   }
 ]

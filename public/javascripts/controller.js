@@ -38,7 +38,9 @@ class Controller {
 
   handleDeleteContact = (id) => {
     if (confirm("Are you sure you want to delete this contact? It can't be undone.")) {
-      this.model.deleteContact(id);
+      if (this.model.contacts.length === 1) {
+        this.model.contacts = [];
+      }
       this.refreshContactsList();
     }
   }
