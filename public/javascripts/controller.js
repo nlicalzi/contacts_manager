@@ -41,6 +41,7 @@ class Controller {
       if (this.model.contacts.length === 1) {
         this.model.contacts = [];
       }
+      this.model.deleteContact(id);
       this.refreshContactsList();
     }
   }
